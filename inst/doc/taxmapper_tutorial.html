@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Introduction</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Introduction</h1>
+
+<p>This vignette provides detailed examples to demonstrate the functionality of the
+<em>taxmapper</em> algorithm included with the ensembleTax package. For a more general 
+demonstration of the ensembleTax package functionality/workflow, please go here:
+<a href="https://github.com/dcat4/ensembleTax">https://github.com/dcat4/ensembleTax</a></p>
+
+<h2>The taxmapper algorithm</h2>
+
+<p><em>taxmapper</em>&#39;s purpose is to map a collection of taxonomic assignments onto a 
+different taxonomic nomenclature (set of naming and ranking conventions). </p>
+
+<p>It does this via rank-agnostic exact name matching. In other words, <em>taxmapper</em> 
+doesn&#39;t care about the heirarchical structure of a taxonomic nomenclature, and 
+assumes that a taxonomic name means the same thing regardless of which reference 
+database that name is found in. There are some exceptions to this when ambiguous
+names are encountered; see Example 5 below for details on what constitutes an 
+ambiguous name and how these are handled by ensembleTax.</p>
+
+<h3>Examples</h3>
+
+<p>To demonstrate the functionality of <em>taxmapper</em>, we&#39;ll create an artificial set 
+of ASVs and corresponding taxonomic assignments as well as an artificial 
+taxonomic nomenclature that mimic&#39;s those available in the ensembleTax R 
+package.</p>
+
+<p>So first, load the ensembleTax package, and create the artificial data sets:</p>
+
+<pre><code class="r">library(&quot;ensembleTax&quot;)
+packageVersion(&quot;ensembleTax&quot;)
+</code></pre>
+
+<pre><code>## [1] &#39;1.1.1&#39;
+</code></pre>
+
+<pre><code class="r"># create a fake taxonomy table of ASVs and taxonomic assignments
+fake.taxtab &lt;- data.frame(ASV = c(&quot;CGTC&quot;, &quot;AAAA&quot;),
+                          kingdom = c(&quot;Eukaryota&quot;, &quot;Bacteria&quot;), 
+                          supergroup = c(&quot;Stramenopile&quot;, NA),
+                          division = c(&quot;Ochrophyta&quot;, NA),
+                          class = c(&quot;Diatomea&quot;, NA),
+                          genus = c(&quot;Pseudo-nitzschia&quot;, NA))
+# create a fake taxonomic nomenclature:
+map2me &lt;- data.frame(kingdom = c(&quot;Eukaryota&quot;), 
+                     largegroup = c(&quot;Stramenopile&quot;),
+                     division = c(&quot;Clade_X&quot;),
+                     class = c(&quot;Ochrophyta&quot;),
+                     order = c(&quot;Bacillariophyta&quot;),
+                     genus = c(&quot;Pseudonitzschia&quot;))
+# look at your artificial data:
+fake.taxtab
+</code></pre>
+
+<pre><code>##    ASV   kingdom   supergroup   division    class            genus
+## 1 CGTC Eukaryota Stramenopile Ochrophyta Diatomea Pseudo-nitzschia
+## 2 AAAA  Bacteria         &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt;             &lt;NA&gt;
+</code></pre>
+
+<pre><code class="r">map2me
+</code></pre>
+
+<pre><code>##     kingdom   largegroup division      class           order           genus
+## 1 Eukaryota Stramenopile  Clade_X Ochrophyta Bacillariophyta Pseudonitzschia
+</code></pre>
+
+<p>So we see we have a set of 2 ASVs with taxonomic assignments, and a taxonomic 
+nomenclature that contains 1 taxonomic entry (we&#39;re trying to make a simple 
+example here; you&#39;ll have thousands of entries in each if you&#39;re doing this with
+real data).</p>
+
+<p>Now would be a good time to review the <em>taxmapper</em> documentation to get a sense 
+of the different parameter spaces available. Here we&#39;ll try to demonstrate what 
+these different parameters are doing.</p>
+
+<h4>Example 1: Strict exact name-matching and the &ldquo;streamline&rdquo; argument</h4>
+
+<p>To start, we&#39;ll run <em>taxmapper</em> with no exceptions, no format-ignoring, and no 
+taxonomic synonyms, and we&#39;ll look at the different outputs you can expect based
+on the <em>streamline</em> argument:</p>
+
+<pre><code class="r">mapped.tt.stmlin &lt;- taxmapper(tt = fake.taxtab,
+                       tt.ranks = colnames(fake.taxtab)[2:ncol(fake.taxtab)],
+                       tax2map2 = map2me,
+                       exceptions = NULL,
+                       ignore.format = FALSE,
+                       synonym.file = NULL,
+                       streamline = TRUE)
+mapped.tt.stmlin
+</code></pre>
+
+<pre><code>##    ASV   kingdom   largegroup division      class order genus
+## 1 AAAA      &lt;NA&gt;         &lt;NA&gt;     &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;
+## 2 CGTC Eukaryota Stramenopile  Clade_X Ochrophyta  &lt;NA&gt;  &lt;NA&gt;
+</code></pre>
+
+<pre><code class="r">mapped.tt.no.stmlin &lt;- taxmapper(tt = fake.taxtab,
+                       tt.ranks = colnames(fake.taxtab)[2:ncol(fake.taxtab)],
+                       tax2map2 = map2me,
+                       exceptions = NULL,
+                       ignore.format = FALSE,
+                       synonym.file = NULL,
+                       streamline = FALSE)
+mapped.tt.no.stmlin
+</code></pre>
+
+<pre><code>## [[1]]
+##     kingdom   supergroup   division    class            genus tax2map2_kingdom
+## 1 Eukaryota Stramenopile Ochrophyta Diatomea Pseudo-nitzschia        Eukaryota
+##   tax2map2_largegroup tax2map2_division tax2map2_class tax2map2_order
+## 1        Stramenopile           Clade_X     Ochrophyta             NA
+##   tax2map2_genus
+## 1             NA
+## 
+## [[2]]
+## [1] &quot;Pseudo-nitzschia&quot; &quot;Diatomea&quot;         &quot;Bacteria&quot;        
+## 
+## [[3]]
+##    ASV   kingdom   largegroup division      class order genus
+## 1 AAAA      &lt;NA&gt;         &lt;NA&gt;     &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;
+## 2 CGTC Eukaryota Stramenopile  Clade_X Ochrophyta  &lt;NA&gt;  &lt;NA&gt;
+</code></pre>
+
+<p>We see that when <em>streamline = TRUE</em> we return a dataframe with the input ASV&#39;s 
+and their mapped taxonomic assignments. This is intended for users who want to 
+automate their ensembleTax workflow and move on with further analyses right 
+away.</p>
+
+<p>If you want to take a look &ldquo;under the hood&rdquo;, setting <em>streamline = FALSE</em>, 
+returns a 3-element list. [[1]] shows the input taxonomic assignments aligned 
+with their mapped values (a sort of mapping &ldquo;rubric&rdquo;). Because <em>Bacteria</em> was 
+not found in tax2map2, it does not have a taxonomy to map onto and is not 
+included in the &ldquo;rubric&rdquo;. [[2]] shows the taxonomic names that could not be 
+mapped. We see that these are the names that were not found (or did not have exact matches to any name) in <em>tax2map2</em> (or &ldquo;map2me&rdquo; in this example). Finally, [[3]] contains the mapped input taxonomy table, which is identical to what was 
+returned when <em>streamline = TRUE</em>.</p>
+
+<p>We see that the &ldquo;CGTC&rdquo; ASV was mapped to <em>Ochrophyta</em>, despite the use of 
+different ranking conventions in the input taxonomy table and the taxonomic 
+nomenclature we&#39;re mapping onto. This illustrates the &ldquo;rank-agnostic&rdquo; part of 
+<em>taxmapper</em>. The &ldquo;AAAA&rdquo; ASV is entirely unassigned in the mapped output because
+our <em>tax2map2</em> didn&#39;t include <em>Bacteria</em>. If you&#39;d like to retain a high-level 
+taxonomic assignment like <em>Bacteria</em> in this example, you can address that with 
+the <em>exceptions</em> argument.</p>
+
+<h4>Example 2: The &ldquo;exceptions&rdquo; argument</h4>
+
+<p>Here we&#39;ll specify that we want to keep <em>Bacteria</em> assignments even though 
+they aren&#39;t included in <em>tax2map2</em>:</p>
+
+<pre><code class="r">mapped.tt.exc &lt;- taxmapper(tt = fake.taxtab,
+                       tt.ranks = colnames(fake.taxtab)[2:ncol(fake.taxtab)],
+                       tax2map2 = map2me,
+                       exceptions = c(&quot;Bacteria&quot;),
+                       ignore.format = FALSE,
+                       synonym.file = NULL,
+                       streamline = TRUE)
+mapped.tt.exc
+</code></pre>
+
+<pre><code>##    ASV   kingdom   largegroup division      class order genus
+## 1 AAAA  Bacteria         &lt;NA&gt;     &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;
+## 2 CGTC Eukaryota Stramenopile  Clade_X Ochrophyta  &lt;NA&gt;  &lt;NA&gt;
+</code></pre>
+
+<p>And we see that instead of a completely unassigned &ldquo;AAAA&rdquo; ASV as we had above, 
+we&#39;ve now retained the <em>Bacteria</em> assignment in the mapped output. </p>
+
+<h4>Example 3: Incorporating taxonomic synonyms</h4>
+
+<p>Folks who study phytoplankton might recognize that <em>Diatomea</em> in our input 
+taxonomy table and <em>Bacillariophyta</em> in the nomenclature we&#39;re mapping onto are 
+taxonomic synonyms (both refer to the same class of phytoplankton, diatoms). 
+<em>taxmapper</em> can search for taxonomic synonyms as well.</p>
+
+<p>If you&#39;d like to use a custom compilation of taxonomic synonyms, please see this
+vignette: 
+<a href="https://github.com/dcat4/ensembleTax/blob/master/how_to_add_synonyms.md">https://github.com/dcat4/ensembleTax/blob/master/how_to_add_synonyms.md</a>.</p>
+
+<p>ensembleTax includes a collection of pre-compiled eukaryotic taxonomic synonyms.
+Let&#39;s have a look at whether <em>Diatomea</em> and <em>Bacillariophyta</em> are included in 
+this pre-compiled data set:</p>
+
+<pre><code class="r"># load ensembleTax&#39;s pre-compiled synonyms:
+syn.df &lt;- ensembleTax::synonyms_v2
+# pull rows with Diatomea (there&#39;s only 1)
+diatom.synonyms &lt;- syn.df[which(syn.df == &quot;Diatomea&quot;, arr.ind=TRUE)[,&#39;row&#39;],]
+# look at it:
+diatom.synonyms
+</code></pre>
+
+<pre><code>##      Name_1          Name_2 Name_3 Name_4 Name_5 Name_6 Name_7      References
+## 10 Diatomea Bacillariophyta   &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt; Adl et al. 2012
+##    Notes.References X X.1
+## 10
+</code></pre>
+
+<p>They are. You can follow a similar procedure to check for synonyms for your 
+favorite taxonomic name, or enhance our pre-compiled synonym collection by 
+saving the above syn.df dataframe to a csv and adding in your own collections of
+synonyms.</p>
+
+<p>Moving on, if we tell <em>taxmapper</em> to consult the pre-compiled taxonomic 
+synonyms included with the ensembleTax package, we should be able to get more 
+refined mapped taxonomic assignments in this example. We&#39;ll do this here with 
+the <em>synonym.file = &ldquo;default&rdquo;</em> argument:</p>
+
+<pre><code class="r">mapped.tt.syn &lt;- taxmapper(tt = fake.taxtab,
+                       tt.ranks = colnames(fake.taxtab)[2:ncol(fake.taxtab)],
+                       tax2map2 = map2me,
+                       exceptions = c(&quot;Bacteria&quot;),
+                       ignore.format = FALSE,
+                       synonym.file = &quot;default&quot;,
+                       streamline = TRUE)
+mapped.tt.syn
+</code></pre>
+
+<pre><code>##    ASV   kingdom   largegroup division      class           order genus
+## 1 AAAA  Bacteria         &lt;NA&gt;     &lt;NA&gt;       &lt;NA&gt;            &lt;NA&gt;  &lt;NA&gt;
+## 2 CGTC Eukaryota Stramenopile  Clade_X Ochrophyta Bacillariophyta  &lt;NA&gt;
+</code></pre>
+
+<p>Taking a look at this output, we see that the &ldquo;CGTC&rdquo; ASV has now been mapped to 
+<em>Bacillariophyta</em>, despite the fact that it is called <em>Diatomea</em> in the fake 
+reference database we used to generate our fake taxonomic assignments. So our 
+inclusion of taxonomic synonyms has reduced the information lost in taxonomy 
+mapping.</p>
+
+<p>We have just one more parameter to check out&hellip;</p>
+
+<h4>Example 4: The &ldquo;ignore.format&rdquo; argument</h4>
+
+<p>You might have noticed in the examples above that our input taxonomy table 
+includes an ASV assigned as <em>Pseudo-nitzschia</em>, while the nomenclature we&#39;re 
+mapping to includes the same taxonomic name with no hyphen in the middle. This 
+is where the ignore.format argument can be helpful: </p>
+
+<pre><code class="r">mapped.tt.igfo &lt;- taxmapper(tt = fake.taxtab,
+                       tt.ranks = colnames(fake.taxtab)[2:ncol(fake.taxtab)],
+                       tax2map2 = map2me,
+                       exceptions = c(&quot;Bacteria&quot;),
+                       ignore.format = TRUE,
+                       synonym.file = NULL,
+                       streamline = TRUE)
+mapped.tt.igfo
+</code></pre>
+
+<pre><code>##    ASV   kingdom   largegroup division      class           order
+## 1 AAAA  Bacteria         &lt;NA&gt;     &lt;NA&gt;       &lt;NA&gt;            &lt;NA&gt;
+## 2 CGTC Eukaryota Stramenopile  Clade_X Ochrophyta Bacillariophyta
+##             genus
+## 1            &lt;NA&gt;
+## 2 Pseudonitzschia
+</code></pre>
+
+<p>We see that setting <em>ignore.format = TRUE</em> has circumvented the formatting 
+issue, and now we retain more information in our mapped annotations since we&#39;re 
+able to map <em>Pseudo-nitzschia</em> onto <em>Pseudonitzschia</em>. Other special symbols 
+handled with <em>ignore.format = TRUE</em> include &ldquo; &rdquo; (single space), &ldquo;_&rdquo;, &ldquo;-&rdquo;, &ldquo;[&rdquo;, 
+&ldquo;]&rdquo;. It also reduces case sensitivity (attempts to map all-lower- and all-upper-
+case variants of a taxonomic name). </p>
+
+<p>If you read the <em>ignore.format</em> documentation carefully, you may notice there 
+are other circumstances where the <em>ignore.format</em> option doesn&#39;t work as 
+cleanly. Here we&#39;ll show an example to illustrate. </p>
+
+<p>If the special characters <em>ignore.format</em> handles are found in <em>tax2map2</em>
+rather than <em>tt</em>, the mapping won&#39;t work. We&#39;ll make a second fake.taxtab and 
+map2me with the <em>Pseudonitzschia</em> variants swapped to demonstrate:</p>
+
+<pre><code class="r">fake.taxtab2 &lt;- fake.taxtab
+fake.taxtab2[fake.taxtab2 == &quot;Pseudo-nitzschia&quot;] &lt;- &quot;Pseudonitzschia&quot;
+map2me2 &lt;- map2me
+map2me2[map2me2 == &quot;Pseudonitzschia&quot;] &lt;- &quot;Pseudo-nitzschia&quot;
+
+fake.taxtab2
+</code></pre>
+
+<pre><code>##    ASV   kingdom   supergroup   division    class           genus
+## 1 CGTC Eukaryota Stramenopile Ochrophyta Diatomea Pseudonitzschia
+## 2 AAAA  Bacteria         &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt;            &lt;NA&gt;
+</code></pre>
+
+<pre><code class="r">map2me2
+</code></pre>
+
+<pre><code>##     kingdom   largegroup division      class           order            genus
+## 1 Eukaryota Stramenopile  Clade_X Ochrophyta Bacillariophyta Pseudo-nitzschia
+</code></pre>
+
+<pre><code class="r">mapped.tt.igfo2 &lt;- taxmapper(tt = fake.taxtab2,
+                       tt.ranks = colnames(fake.taxtab)[2:ncol(fake.taxtab)],
+                       tax2map2 = map2me2,
+                       exceptions = c(&quot;Bacteria&quot;),
+                       ignore.format = TRUE,
+                       synonym.file = NULL,
+                       streamline = TRUE)
+mapped.tt.igfo2
+</code></pre>
+
+<pre><code>##    ASV   kingdom   largegroup division      class order genus
+## 1 AAAA  Bacteria         &lt;NA&gt;     &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;
+## 2 CGTC Eukaryota Stramenopile  Clade_X Ochrophyta  &lt;NA&gt;  &lt;NA&gt;
+</code></pre>
+
+<p>This example illustrates that formatting is only being ignored for the taxonomic 
+names we&#39;re mapping, and NOT for the taxonomic nomenclature we&#39;re mapping onto. 
+This is an important limitation to keep in mind. If you find this problematic, 
+you may consider further customization of the <em>tax2map2</em> data. We are 
+considering more detailed manipulations of the nomenclatures supported by 
+ensembleTax to circumvent this issue but for now we supply these exactly as they
+are supplied by the creators of the reference databases.</p>
+
+<h4>Example 5: ambiguous &ldquo;placeholder&rdquo; names</h4>
+
+<p>One last example we need to look at considers ambiguous taxonomic names that are
+sometimes included in reference databases. </p>
+
+<p>Let&#39;s make a small adjustment to our fake.taxtab to see how these are handled by 
+<em>taxmapper</em>. We&#39;ll add a &ldquo;Clade_X&rdquo; supergroup annotation to our prokaryotic ASV.</p>
+
+<pre><code class="r"># create a new fake taxonomy table of ASVs and taxonomic assignments
+fake.taxtab &lt;- data.frame(ASV = c(&quot;CGTC&quot;, &quot;AAAA&quot;),
+                          kingdom = c(&quot;Eukaryota&quot;, &quot;Bacteria&quot;), 
+                          supergroup = c(&quot;Stramenopile&quot;, &quot;Clade_X&quot;),
+                          division = c(&quot;Ochrophyta&quot;, NA),
+                          class = c(&quot;Diatomea&quot;, NA),
+                          genus = c(&quot;Pseudo-nitzschia&quot;, NA))
+
+# look at your artificial data again:
+fake.taxtab
+</code></pre>
+
+<pre><code>##    ASV   kingdom   supergroup   division    class            genus
+## 1 CGTC Eukaryota Stramenopile Ochrophyta Diatomea Pseudo-nitzschia
+## 2 AAAA  Bacteria      Clade_X       &lt;NA&gt;     &lt;NA&gt;             &lt;NA&gt;
+</code></pre>
+
+<pre><code class="r">map2me
+</code></pre>
+
+<pre><code>##     kingdom   largegroup division      class           order           genus
+## 1 Eukaryota Stramenopile  Clade_X Ochrophyta Bacillariophyta Pseudonitzschia
+</code></pre>
+
+<p>Re-inspecting map2me shows that &ldquo;Clade_X&rdquo; is also the name of a clade of 
+Eukaryotic Stramenopiles. Ruh roh. This might introduce errors in the mapped 
+taxonomic assignments since Clade_X is a name found in both a Bacterial and 
+Stramenopile lineage.</p>
+
+<p>Let&#39;s see what happens when we run taxmapper:</p>
+
+<pre><code class="r">mapped.tt.ambigtest &lt;- taxmapper(tt = fake.taxtab,
+                       tt.ranks = colnames(fake.taxtab)[2:ncol(fake.taxtab)],
+                       tax2map2 = map2me,
+                       exceptions = NULL,
+                       ignore.format = TRUE,
+                       synonym.file = NULL,
+                       streamline = TRUE)
+mapped.tt.ambigtest
+</code></pre>
+
+<pre><code>##    ASV   kingdom   largegroup division      class           order
+## 1 AAAA      &lt;NA&gt;         &lt;NA&gt;     &lt;NA&gt;       &lt;NA&gt;            &lt;NA&gt;
+## 2 CGTC Eukaryota Stramenopile  Clade_X Ochrophyta Bacillariophyta
+##             genus
+## 1            &lt;NA&gt;
+## 2 Pseudonitzschia
+</code></pre>
+
+<p>We see that despite the fact that there was an exact name match, <em>taxmapper</em> has 
+avoided making an incorrect annotation in the mapped output. <em>taxmapper</em> 
+does this by checking the names to be mapped for taxonomic names that BEGIN with
+certain words. Here&#39;s the complete list of what it checks for:
+&ldquo;Clade&rdquo;, &ldquo;CLADE&rdquo;, &ldquo;clade&rdquo;, &ldquo;Group&rdquo;, &ldquo;GROUP&rdquo;, &ldquo;group&rdquo;, &ldquo;Class&rdquo;, &ldquo;CLASS&rdquo;, &ldquo;class&rdquo;,
+&ldquo;Subgroup&rdquo;, &ldquo;SubGroup&rdquo;, &ldquo;SUBGROUP&rdquo;, &ldquo;subgroup&rdquo;, &ldquo;Subclade&rdquo;, &ldquo;SubClade&rdquo;, 
+&ldquo;SUBCLADE&rdquo;, &ldquo;subclade&rdquo;, &ldquo;Subclass&rdquo;, &ldquo;SubClass&rdquo;, &ldquo;SUBCLASS&rdquo;, &ldquo;subclass&rdquo;, 
+&ldquo;Sub group&rdquo;, &ldquo;Sub Group&rdquo;, &ldquo;SUB GROUP&rdquo;, &ldquo;sub group&rdquo;, &ldquo;Sub clade&rdquo;, &ldquo;Sub Clade&rdquo;, 
+&ldquo;SUB CLADE&rdquo;, &ldquo;sub clade&rdquo;, &ldquo;Sub class&rdquo;, &ldquo;Sub Class&rdquo;, &ldquo;SUB CLASS&rdquo;, &ldquo;sub class&rdquo;,
+&ldquo;Sub<em>group&rdquo;, &ldquo;Sub_Group&rdquo;, &ldquo;SUB_GROUP&rdquo;, &ldquo;sub_group&rdquo;, &ldquo;Sub_clade&rdquo;, &ldquo;Sub_Clade&rdquo;, 
+&ldquo;SUB_CLADE&rdquo;, &ldquo;sub_clade&rdquo;, &ldquo;Sub_class&rdquo;, &ldquo;Sub_Class&rdquo;, &ldquo;SUB_CLASS&rdquo;, &ldquo;sub_class&rdquo;, 
+&ldquo;Sub-group&rdquo;, &ldquo;Sub-Group&rdquo;, &ldquo;SUB-GROUP&rdquo;, &ldquo;sub-group&rdquo;, &ldquo;Sub-clade&rdquo;, &ldquo;Sub-Clade&rdquo;, 
+&ldquo;SUB-CLADE&rdquo;, &ldquo;sub-clade&rdquo;, &ldquo;Sub-class&rdquo;, &ldquo;Sub-Class&rdquo;, &ldquo;SUB-CLASS&rdquo;, &ldquo;sub-class&rdquo;, 
+&ldquo;incertae sedis&rdquo;, &ldquo;INCERTAE SEDIS&rdquo;, &ldquo;Incertae sedis&rdquo;, &ldquo;Incertae Sedis&rdquo;, 
+&ldquo;incertae-sedis&rdquo;, &ldquo;INCERTAE-SEDIS&rdquo;, &ldquo;Incertae-sedis&rdquo;, &ldquo;Incertae-Sedis&rdquo;, 
+&ldquo;incertae_sedis&rdquo;, &ldquo;INCERTAE</em>-SEDIS&rdquo;, &ldquo;Incertae_sedis&rdquo;, &ldquo;Incertae_Sedis&rdquo;, 
+&ldquo;incertaesedis&rdquo;, &ldquo;INCERTAESEDIS&rdquo;, &ldquo;Incertaesedis&rdquo;, &ldquo;IncertaeSedis&rdquo;, 
+&ldquo;unclassified&rdquo;, &ldquo;UNCLASSIFIED&rdquo;, &ldquo;Unclassified&rdquo;, &ldquo;Novel&rdquo;, &ldquo;novel&rdquo;, &ldquo;NOVEL&rdquo;, 
+&ldquo;sp&rdquo;, &ldquo;sp.&rdquo;, &ldquo;spp&rdquo;, &ldquo;spp.&rdquo;, &ldquo;lineage&rdquo;, &ldquo;Lineage&rdquo;, &ldquo;LINEAGE&rdquo;</p>
+
+<p>So, what does <em>taxmapper</em> do when it encounters an ambiguous name like 
+&ldquo;Clade_X&rdquo;? It doesn&#39;t just discard the name. Instead, it finds the lowest rank 
+with a non-ambiguous taxonomic name (a name that doesn&#39;t begin with a word in 
+the list above), and appends that non-ambiguous name to the ambiguous name, 
+separated by a &ldquo;-&rdquo;. In our example above, this means <em>taxmapper</em> was searching 
+for &ldquo;Bacteria-Clade_X&rdquo; rather than just &ldquo;Clade_X&rdquo;, removing the ambiguity in 
+taxonomic identity. </p>
+
+<p>Here we&#39;ll add an annotation to our <em>tax2map2</em> (the map2me variable defined 
+above) and see that, in some cases, we can use <em>ignore.format</em> to map the 
+ambiguous &ldquo;Clade_X&rdquo; name assigned to our &ldquo;AAAA&rdquo; ASV:</p>
+
+<pre><code class="r"># add an entry in our tax2map2 that matches (but not exactly) one of our ASVs:
+map2me &lt;- rbind(map2me,
+                c(&quot;Bacteria&quot;, &quot;Bacteria_Clade_X&quot;, rep(NA, times = ncol(map2me)-2)))
+map2me
+</code></pre>
+
+<pre><code>##     kingdom       largegroup division      class           order
+## 1 Eukaryota     Stramenopile  Clade_X Ochrophyta Bacillariophyta
+## 2  Bacteria Bacteria_Clade_X     &lt;NA&gt;       &lt;NA&gt;            &lt;NA&gt;
+##             genus
+## 1 Pseudonitzschia
+## 2            &lt;NA&gt;
+</code></pre>
+
+<pre><code class="r"># map again with ignore.format = FALSE.. the Bacteria will only map to Bacteria
+mapped.tt.ambigtest2 &lt;- taxmapper(tt = fake.taxtab,
+                       tt.ranks = colnames(fake.taxtab)[2:ncol(fake.taxtab)],
+                       tax2map2 = map2me,
+                       exceptions = NULL,
+                       ignore.format = FALSE,
+                       synonym.file = NULL,
+                       streamline = TRUE)
+# confirm:
+mapped.tt.ambigtest2
+</code></pre>
+
+<pre><code>##    ASV   kingdom   largegroup division      class order genus
+## 1 AAAA  Bacteria         &lt;NA&gt;     &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;
+## 2 CGTC Eukaryota Stramenopile  Clade_X Ochrophyta  &lt;NA&gt;  &lt;NA&gt;
+</code></pre>
+
+<pre><code class="r"># now set ignore.format = TRUE.. we&#39;ll map to Bacteria Clade X:
+mapped.tt.ambigtest3 &lt;- taxmapper(tt = fake.taxtab,
+                       tt.ranks = colnames(fake.taxtab)[2:ncol(fake.taxtab)],
+                       tax2map2 = map2me,
+                       exceptions = NULL,
+                       ignore.format = TRUE,
+                       synonym.file = NULL,
+                       streamline = TRUE)
+# confirm:
+mapped.tt.ambigtest3
+</code></pre>
+
+<pre><code>##    ASV   kingdom       largegroup division      class           order
+## 1 AAAA  Bacteria Bacteria_Clade_X     &lt;NA&gt;       &lt;NA&gt;            &lt;NA&gt;
+## 2 CGTC Eukaryota     Stramenopile  Clade_X Ochrophyta Bacillariophyta
+##             genus
+## 1            &lt;NA&gt;
+## 2 Pseudonitzschia
+</code></pre>
+
+<p>To clarify what&#39;s going on here one last time, when <em>taxmapper</em> encountered the
+&ldquo;Clade_X&rdquo; assignment for the &ldquo;AAAA&rdquo; ASV, it appended the next-lowest 
+non-ambiguous taxonomic assignment (&ldquo;Bacteria&rdquo;) and searched for an 
+exact match to this now-non-ambiguous name (&ldquo;Bacteria-Clade_X&rdquo;). When 
+<em>ignore.format = FALSE</em>, &ldquo;Bacteria-Clade_X&rdquo; was not an exact match to 
+&ldquo;Bacteria_Clade_X&rdquo; (the hyphen and underscore are different). But when 
+<em>ignore.format = TRUE</em>, <em>taxmapper</em> searched for various formatting variants of 
+&ldquo;Bacteria-Clade_X&rdquo;, one of which is &ldquo;Bacteria_Clade_X&rdquo;. This results in an exact 
+match in <em>tax2map2</em> and a more refined mapped taxonomic annotation for this ASV.</p>
+
+<p>You might notice that if an ambiguous name like &ldquo;Clade_X&rdquo; is found in 
+<em>tax2map2</em>, we will NOT be able to map onto this taxonomic assignment under any 
+circumstances with the current implementation of <em>taxmapper</em>. The strategy 
+<em>taxmapper</em> uses here is based on inspection of the database nomenclatures 
+included in ensembleTax and our desire to preserve the nomenclatures employed by 
+different reference databases as closely as possible. Again, we are considering 
+more detailed manipulations of the nomenclatures supported by ensembleTax to 
+circumvent this issue but for now we supply these as they are supplied by the 
+creators of the reference databases.</p>
+
+<p>And that brings us to the end of this vignette. Please let us know about issues 
+that come up on the esembleTax Github issues tracker.</p>
+
+</body>
+
+</html>
